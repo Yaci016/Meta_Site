@@ -1,0 +1,60 @@
+<h2>Panneau d'administration</h2>
+<section class="navigation">
+    <?php if (isset($_SESSION['droit']) && $_SESSION['droit'] > 2) { ?>
+
+        <a href="../Creation_article/Creation_article.php"> <i class="fas fa-edit"></i> Rédiger une nouvelle news</a>
+        <a href="../Gestion_Auteurs/Ajout_auteur.php"><i class="fas fa-plus"></i> ajouter un nouvel auteur</a>
+        <a href="../Gestion_categorie/Ajout_categorie.php"> <i class="fas fa-plus"></i> ajouter une nouvelle
+            categorie</a>
+    <?php } ?>
+    <a href="../Gestion_Commentaires/Moderation_Commentaire.php"> <i class="fas fa-file-alt"></i> Moderer Les
+        commentaires</a>
+</section>
+<p style="text-align: center;">Liste des articles</p>
+<table id="tableau_administration" width="100%">
+    <tr>
+        <td><strong>Titre</strong></td>
+        <td><strong>Article</strong></td>
+        <td><strong>Auteur</strong></td>
+        <td><strong>Catégorie</strong></td>
+    </tr>
+    <?php foreach ($Liste_News as $new) {
+        $id = $new['id'];
+        $titre = $new['titre'];
+        $contenue = $new['contenue'];
+        $date_ajout = $new['date_ajout'];
+        $nom_Auteur = $new['Nom'];
+        $Prenom_Auteur = $new['Prenom'];
+        $categorie = $new['Nom_De_Categorie'];
+        ?>
+        <tr>
+            <td><?= $titre ?></td>
+            <td><?= $contenue ?></td>
+            <td>  <?php if ($nom_Auteur == null) {
+                    echo '<strong>Auteur suprimé</strong>';
+                } else {
+                    echo $nom_Auteur . ' ' . $Prenom_Auteur;
+                } ?></td>
+            <td> <?php if ($categorie == null) {
+                    echo 'Categorie suprimée';
+                } else {
+                    echo $categorie;
+                } ?> </td>
+            <td>
+                <form action="../Edition_article/Edition_article.php" method="post">
+                    <input name="titre" type="hidden" value="<?= $titre ?>">
+                    <input name="contenue" type="hidden" value="<?= $contenue ?>">
+                    <input name="auteur" type="hidden" value="<?= $nom_Auteur . ' ' . $Prenom_Auteur ?>">
+                    <input name="categorie" type="hidden" value="<?= $categorie ?>">
+                    <button name="edit" value="<?= $id ?>" class="bouton_edition"><i class="fas fa-pen"></i></button>
+                </form>
+            </td>
+            <td>
+                <form action="administration.php" method="post">
+                    <button class="bouton_edition" name="delete" value="<?= $id ?>"><i class="fas fa-times"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+    <?php } ?>
+</table>
