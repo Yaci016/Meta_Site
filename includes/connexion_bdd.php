@@ -1,19 +1,13 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Yacine
- * Date: 10/18/2018 0018
- * Time: 1:55 AM
- */
-// use actual date() format displayed in your table.
-$servername = "127.0.0.1";
+<?php // use actual date() format displayed in your table.
+$servername = "localhost";
+$port = "3308";
 $username = "root";
-$password = "troiswa";
+$password = "";
 $database = "blog";
 try {
-    $bdd = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
+    $bdd = new PDO("mysql:host=$servername;port=$port;dbname=$database", $username, $password);
     // set the PDO error mode to exception
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
+} catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }

@@ -2,12 +2,12 @@
 <section class="navigation">
     <?php if (isset($_SESSION['droit']) && $_SESSION['droit'] > 2) { ?>
 
-        <a href="../Creation_article/Creation_article.php"> <i class="fas fa-edit"></i> Rédiger une nouvelle news</a>
-        <a href="../Gestion_Auteurs/Ajout_auteur.php"><i class="fas fa-plus"></i> ajouter un nouvel auteur</a>
-        <a href="../Gestion_categorie/Ajout_categorie.php"> <i class="fas fa-plus"></i> ajouter une nouvelle
+        <a href="Creation/Article"> <i class="fas fa-edit"></i> Rédiger une nouvelle news</a>
+        <a href="Creation/Auteur"><i class="fas fa-plus"></i> ajouter un nouvel auteur</a>
+        <a href="Creation/Categorie"> <i class="fas fa-plus"></i> ajouter une nouvelle
             categorie</a>
     <?php } ?>
-    <a href="../Gestion_Commentaires/Moderation_Commentaire.php"> <i class="fas fa-file-alt"></i> Moderer Les
+    <a href="Moderation/Commentaire"> <i class="fas fa-file-alt"></i> Moderer Les
         commentaires</a>
 </section>
 <p style="text-align: center;">Liste des articles</p>
@@ -41,7 +41,7 @@
                     echo $categorie;
                 } ?> </td>
             <td>
-                <form action="../Edition_article/Edition_article.php" method="post">
+                <form action="Edition/Article" method="post">
                     <input name="titre" type="hidden" value="<?= $titre ?>">
                     <input name="contenue" type="hidden" value="<?= $contenue ?>">
                     <input name="auteur" type="hidden" value="<?= $nom_Auteur . ' ' . $Prenom_Auteur ?>">
@@ -50,7 +50,7 @@
                 </form>
             </td>
             <td>
-                <form action="administration.php" method="post">
+                <form action="administration" method="post">
                     <button class="bouton_edition" name="delete" value="<?= $id ?>"><i class="fas fa-times"></i>
                     </button>
                 </form>

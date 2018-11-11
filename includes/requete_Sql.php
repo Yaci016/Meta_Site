@@ -210,7 +210,6 @@ function signIn($Pseudo, $Pass)
         $pass_user = password_hash($Pass, PASSWORD_DEFAULT);
         //on check le mot de passe si il est valide on go next
         if ($Pass_bdd == $pass_user) {
-            echo 'success';
             $_SESSION['user'] = $pseudo;
             $_SESSION['Pass'] = $Pass_bdd;
             $_SESSION['droit'] = $Droit;

@@ -7,7 +7,7 @@ function charger(){
         var premierID = $('#messages p:first').attr('id'); // on récupère l'id le plus récent
         var id_article = $('button[name="valide"]').val();//on recupere l'id article qui a etait echo dans la value du bouton valide
         $.ajax({ //requete $.ajax qui permet de grandements simplifier la vue de la function apache demandé
-            url: "../../Getcommentaire.php?id=" + premierID + '&id_article=' + id_article, // on passe l'id le plus récent au fichier de chargement
+            url: "includes/Getcommentaire.php?id="+premierID+"&id_article="+id_article,// on passe l'id le plus récent au fichier de chargement
             type : "GET",
             success: [function (html) {
                 $('#messages').html(html);
@@ -33,9 +33,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         var ajouterVal = $('button[name="valide"]');
 
-        if(pseudo != "" && message != ""){ // on vérifie que les variables ne sont pas vides
+        if(pseudo !== "" && message !== ""){ // on vérifie que les variables ne sont pas vides
             $.ajax({
-                url: "../../addCommentaire.php", // on donne l'URL du fichier de traitement
+                url: "includes/addCommentaire.php", // on donne l'URL du fichier de traitement
                 type : "POST", // la requête est de type POST
                 data: "pseudo=" + pseudo.val() + "&message=" + message.val() + "&id=" + ajouterVal.val() // et on envoie nos données (id la en l'occurence veux dire id_article)
             });

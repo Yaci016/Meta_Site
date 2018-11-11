@@ -23,7 +23,7 @@
             <td> <?= $date_ajout ?> </td>
             <td> <?= $id_article ?> </td>
             <td>
-                <form action="Moderation_Commentaire.php" method="post">
+                <form action="Moderation/Commentaire" method="post">
                     <?php if ($state !== 1) {
                         echo "en attente de validation";
                     } else {
@@ -44,7 +44,7 @@
                 </form>
             </td> */ ?>
             <td>
-                <form action="Moderation_Commentaire.php" method="post">
+                <form action="Moderation/Commentaire" method="post">
                     <button class="bouton_edition" name="delete" value="<?= $id ?>"><i class="fas fa-times"></i>
                     </button>
                 </form>
@@ -52,5 +52,5 @@
         </tr>
     <?php } ?>
 </table>
-<a href="Moderation_Commentaire.php" style="float:right;">Retourner a la moderation des commentaires</a>
+<a href="Moderation/Commentaire" style="float:right;">Retourner a la moderation des commentaires</a>
 <div class="clear"></div>

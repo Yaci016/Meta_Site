@@ -9,7 +9,7 @@
     $categorie = $new['Nom_De_Categorie'];
     ?>
     <div class="Post">
-        <a href="includes/Pages/Commentaires/commentaires.php?article=<?= $id ?>">
+        <a href="Commentaires/<?= $id ?>">
             <h3>
                 <i class="far fa-hand-point-right" style="color:black;"></i>
                 <?= $titre ?>
@@ -17,7 +17,7 @@
         </a>
         <p>
             <?= $contenue ?>
-            <a href="includes/Pages/Commentaires/commentaires.php?article=<?= $id ?>" class="<?= $id ?>"
+            <a href="Commentaires/<?= $id ?>" class="<?= $id ?>"
                style="color:black;">[...]</a>
         </p>
         <p>

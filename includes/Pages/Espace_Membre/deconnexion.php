@@ -5,7 +5,7 @@
  * Date: 23/10/18
  * Time: 09:54
  */
-header('location:../../../index.php');
+header('location:home');
 //connexion bdd en include
 require_once '../../connexion_bdd.php';
 //requete sql en include
